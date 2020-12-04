@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>KanbanBoard_Smart</RootNamespace>
+    </PropertyGroup>
+    
+
+ 
+    <ItemGroup>
+      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.1.0-rc.371" />
+      <PackageReference Include="McMaster.Extensions.Hosting.CommandLine" Version="3.1.0-rc.371" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EntityDeploy Remove="Common\**" />
+      <EntityDeploy Remove="Application\**" />
+      <EntityDeploy Remove="Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\CLI\CLI.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Persistent\Persistent.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="MyDatabase.db3" />
+    </ItemGroup>
+
+</Project>
